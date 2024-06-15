@@ -15,7 +15,11 @@ function Navigation() {
 
   useEffect(() => {
     // Trigger animation on page load
-    setAnimateNav(true);
+    const timeout = setTimeout(() => {
+      setAnimateNav(true);
+    }, 100); // Adjust delay as needed
+
+    return () => clearTimeout(timeout); // Cleanup on unmount
   }, []);
 
   return (
@@ -24,7 +28,9 @@ function Navigation() {
         {navigationItem.map((itemName) => (
           <div>
             <li>
-              <a href="#">{itemName}</a>
+              <a className={'rubik-text'} href="#">
+                {itemName}
+              </a>
             </li>
           </div>
         ))}
