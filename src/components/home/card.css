@@ -1,33 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+FR+Moderne:wght@100..400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
 .card {
-    margin: 20px; /* General margin for all sides */
-    padding: 20px;
-    width: 40%;
-    height: calc(100vh - 20vh);
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: margin 0.3s ease-in-out, padding 0.3s ease-in-out, background-color 4s ease-in-out;;
-    overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  background-color: #8284d2;
+  margin: 20px;
+  padding: 20px;
+  width: 30%;
+  height: calc(100vh - 20vh);
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: margin 0.3s ease-in-out, padding 0.3s ease-in-out;
+  overflow-y: auto;
+}
+
+.card-content {
+  padding: 20px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.card-content h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: white;
+}
+
+.card-content .im-text {
+  font-family: "Red Hat Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: lighter;
+  font-style: normal;
+  font-size: 4.6rem;
+}
+
+.card-content .name-text {
+  font-family: "Urbanist", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 5rem;
+}
+
+.card-content .surname-text {
+  font-family: "Urbanist", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 5rem;
+}
+
+.image-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.rounded-image-container {
+  position: relative;
+  width: 350px;
+  height: 350px;
+}
+
+.email {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  color: white;
+  margin-left: 10%;
+  text-decoration: underline dashed white;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 10px;
+}
+
+.rounded-background {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  width: 300px;
+  height: 300px;
+  background-color: #efaeff;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 5px solid transparent;
+  border-top-color: white;
+  z-index: 2;
+}
+
+.rounded-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 350px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 3;
+}
+
+.rounded-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  filter: grayscale(100%);
+}
+
+@keyframes progress {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Media query for tablet and above */
+@media (min-width: 768px) {
+  .card {
+    margin-left: 100px;
+  }
+
+  .card-content {
+    padding: 20px; /* Maintain padding for larger screens */
   }
   
-  /* Media query for tablet and above */
-  @media (min-width: 768px) {
-    .card {
-      margin-left: 100px; /* Ensure card is not overlapped by navigation */
-    }
+  .card-content .im-text {
+    font-size: 3.6rem;
   }
   
-  /* Media query for smaller screens */
-  @media (max-width: 768px) {
-    .card {
-      margin-left: 20px; /* Adjust margin for smaller screens */
-      padding: 15px; /* Adjust padding for smaller screens */
-    }
+  .card-content .name-text {
+    font-size: 4rem;
   }
   
-  /* Media query for very small screens */
-  @media (max-width: 480px) {
-    .card {
-      margin-left: 10px; /* Further adjust margin for very small screens */
-      padding: 10px; /* Further adjust padding for very small screens */
-    }
+  .card-content .surname-text {
+    font-size: 4rem;
   }
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .card {
+    margin-left: 20px;
+    padding: 15px; /* Reduce padding for smaller screens */
+  }
+
+  .card-content {
+    padding: 10px; /* Adjust padding for smaller screens */
+  }
+
+  .card-content .im-text {
+    font-size: 2.6rem;
+  }
+  
+  .card-content .name-text {
+    font-size: 3rem;
+  }
+  
+  .card-content .surname-text {
+    font-size: 3rem;
+  }
+}
+
+/* Media query for very small screens */
+@media (max-width: 480px) {
+  .card {
+    margin-left: 10px;
+    padding: 10px; /* Further reduce padding for very small screens */
+  }
+
+  .card-content {
+    padding: 5px; /* Adjust padding for very small screens */
+  }
+
+  .rounded-image-container {
+    width: 100px;
+    height: 100px;
+  }
+
+  .rounded-background {
+    width: 70px;
+    height: 70px;
+  }
+
+  .rounded-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .rounded-image img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .card-content .im-text {
+    font-size: 1.6rem;
+  }
+  
+  .card-content .name-text {
+    font-size: 2rem;
+  }
+  
+  .card-content .surname-text {
+    font-size: 2rem;
+  }
+}

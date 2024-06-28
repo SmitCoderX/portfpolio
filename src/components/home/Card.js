@@ -1,31 +1,50 @@
 import React, { useState, useEffect } from 'react';
 import './card.css';
+import { firebaseStorage as storage } from '../../firebase'; // Adjust the path based on your project structure
+import { ref, getDownloadURL } from 'firebase/storage';
+import { Link } from 'react-router-dom';
 
 function Card() {
-  const [backgroundColor, setBackgroundColor] = useState(getRandomLightColor());
+  const [imageUrl, setImageUrl] = useState('');
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setBackgroundColor(getRandomLightColor());
-    }, 2000); // Change color every 2 seconds
+    const fetchImage = async () => {
+      try {
+        const imageRef = ref(storage, 'anirudh.png');
+        const url = await getDownloadURL(imageRef);
+        setImageUrl(url);
+      } catch (error) {
+        console.error('Error fetching image:', error);
+      }
+    };
 
-    return () => clearInterval(intervalId);
+    fetchImage();
   }, []);
 
-  // Function to generate a random light color
-  function getRandomLightColor() {
-    const letters = 'BCDEF'; // Only use letters B to F for light colors
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * letters.length)];
-    }
-    return color;
-  }
-
   return (
-    <div className="card" style={{ backgroundColor }}>
-      <h1>I'm Anirudh Sharma</h1>
-      <p>anirudh16june@gmail.com</p>
+    <div className="card">
+      <div className="card-content">
+        <h1>
+          <span className="im-text">Im,</span>
+          <span className="name-text">Anirudh</span>
+          <span className="surname-text">Sharma</span>
+        </h1>
+        <Link
+          className="email"
+          onClick={() => (window.location = 'mailto: anirudh16june@gmail.com')}
+        >
+          anirudh16june@gmail.com
+        </Link>
+      </div>
+      <div className="image-container">
+        <div className="rounded-image-container">
+          <div className="rounded-background"></div>
+          <div className="progress-bar"></div>
+          <div className="rounded-image">
+            {imageUrl && <img src={imageUrl} alt="Fetched from Firebase" />}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
