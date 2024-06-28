@@ -1,0 +1,33 @@
+.card {
+    margin: 20px; /* General margin for all sides */
+    padding: 20px;
+    width: 40%;
+    height: calc(100vh - 20vh);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: margin 0.3s ease-in-out, padding 0.3s ease-in-out, background-color 4s ease-in-out;;
+    overflow-y: auto;
+  }
+  
+  /* Media query for tablet and above */
+  @media (min-width: 768px) {
+    .card {
+      margin-left: 100px; /* Ensure card is not overlapped by navigation */
+    }
+  }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    .card {
+      margin-left: 20px; /* Adjust margin for smaller screens */
+      padding: 15px; /* Adjust padding for smaller screens */
+    }
+  }
+  
+  /* Media query for very small screens */
+  @media (max-width: 480px) {
+    .card {
+      margin-left: 10px; /* Further adjust margin for very small screens */
+      padding: 10px; /* Further adjust padding for very small screens */
+    }
+  }

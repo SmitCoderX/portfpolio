@@ -4,22 +4,22 @@
     font-family: "Rubik", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-  }
+}
 
 nav {
-    width: 80px; /* Set the width for the vertical nav */
+    width: 50px; /* Set the width for the vertical nav */
     position: absolute; /* Fix the nav to the left side of the page */
     height: 100%; /* Make the nav full height */
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
- 
+    z-index: 1000;
 }
 
-.nav.animated {
+nav.animated {
     opacity: 1;
-    transition: opacity 2s ease-in-out;
+    transition: opacity cubic-bezier(0.23, 1, 0.320, 1) ease-in-out;
 }
 
 nav ul {
@@ -63,4 +63,61 @@ nav ul li a:hover::after {
 
 nav ul li a:hover {
     text-decoration: none; /* Prevents the default underline */
+}
+
+.nav-toggle {
+    display: none; /* Hide button by default */
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1001; /* Ensure it is above other elements */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block; /* Show button on mobile */
+        z-index: 1001;
+    }
+
+    nav {
+        width: 100%; /* Full width for mobile */
+        height: 100%; /* Auto height for mobile */
+        background-color: white;
+        flex-direction: column; /* Column layout */
+        display: none; /* Hide nav by default */
+        z-index: 1000;
+    }
+
+    nav.active {
+        display: flex; /* Show nav when active */
+    }
+
+    nav ul {
+        flex-direction: column; /* Make the list vertical */
+        transform: none; /* Remove rotation */
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Adjust margin between items */
+    }
+
+    nav ul li a {
+        padding: 15px 20px; /* Increase padding for touch devices */
+    }
+
+    nav ul li a::after {
+        left: 0;
+        right: 0;
+        bottom: -5px; /* Adjust position of underline */
+        width: 0;
+    }
+
+    nav ul li a:hover::after {
+        width: 100%; /* Full width on hover */
+    }
 }
