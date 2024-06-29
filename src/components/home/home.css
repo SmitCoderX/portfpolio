@@ -27,7 +27,6 @@
   display: flex;
   flex-direction: column;
   margin-left: 20px;
-  margin-right: -20px;
   margin-bottom: 10px;
 }
 
@@ -82,7 +81,7 @@
 }
 
 .yoe:hover {
-  box-shadow: 0 12px 20px #a9dad7;
+  box-shadow: 0 0px 12px #a9dad7;
 }
 
 
@@ -160,6 +159,12 @@
   transition: opacity 0.5s ease-in-out;
 }
 
+.second-row {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+}
+
 .card-resume {
   background-color: #595959;
   margin-top: 10px;
@@ -172,8 +177,7 @@
 }
 
 .card-resume:hover {
-  box-shadow: 0 12px 20px #595959;
-
+  box-shadow: 0 8px 15px #595959;
 }
 
 .card-resume h2 {
@@ -188,7 +192,7 @@
   font-optical-sizing: auto;
   font-weight: bolder;
   font-style: normal;
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: white;
 }
 
@@ -197,13 +201,51 @@
   font-optical-sizing: auto;
   font-weight: 600;
   font-style: normal;
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: white;
 }
 
 .resume-link {
   text-decoration: none;
 }
+
+.social {
+  background-color: #ffc266;
+  margin-top: 10px;
+  margin-left: 20px;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.social:hover {
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.social-heading {
+  text-align: start;
+  color: black;
+  margin-top: 10px;
+  margin-left: 10px;
+  font-family: "Red Hat Display", sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.social-platform {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+}
+
+.social-icon {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
 
 .made-card {
   background-color: powderblue;
@@ -247,8 +289,6 @@
   width: 50%; /* Underline covers 50% width on hover */
 }
 
-
-
 /* Move-in animation */
 @keyframes moveIn {
   0% {
@@ -288,13 +328,13 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   margin-top: -10px;
   margin-bottom: 10px;
-  width: 35rem; /* Set width to 40% */
+  width: 30rem; /* Set width to 40% */
   height: auto;
   transition: box-shadow 0.3s ease-in-out;
 }
 
 .about-me-card:hover {
-  box-shadow: 0 30px 50px #fbe691;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 

@@ -2,6 +2,13 @@ import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import './home.css';
 import { Link } from 'react-router-dom';
+import 'react-social-icons/github';
+import 'react-social-icons/linkedin';
+import 'react-social-icons/x';
+import 'react-social-icons/instagram';
+import 'react-social-icons/facebook';
+import 'react-social-icons/discord';
+import { SocialIcon } from 'react-social-icons';
 
 function Home() {
   const texts = ['SmitCoderX', 'Android Developer', 'Portfolio'];
@@ -70,6 +77,43 @@ function Home() {
                 <span className="resume">Resume</span>
               </h2>
             </Link>
+          </div>
+
+          <div className="social">
+            <h3 className="social-heading">Social Links</h3>
+            <div className="social-platform">
+              <SocialIcon
+                className="social-icon"
+                url="https://github.com/SmitCoderX"
+                target="_blank"
+              />
+              <SocialIcon
+                className="social-icon"
+                url="https://linkedin.com/in/SmitCoderX"
+                target="_blank"
+              />
+              <SocialIcon
+                className="social-icon"
+                url="https://x.com/anirudh16june"
+                target="_blank"
+              />
+              <SocialIcon
+                className="social-icon"
+                url="https://instagram.com/anirudh_16_sharma"
+                target="_blank"
+              />
+              <SocialIcon
+                className="social-icon"
+                url="https://facebook.com/anirudh.sharma.3538039"
+                target="_blank"
+              />
+              <SocialIcon
+                className="social-icon"
+                network="discord"
+                url="https://discordapp.com/users/655776418722217994/"
+                target="_blank"
+              />
+            </div>
           </div>
         </div>
 
