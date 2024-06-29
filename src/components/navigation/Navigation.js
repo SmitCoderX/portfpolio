@@ -15,7 +15,6 @@ function Navigation() {
     { name: 'Projects', path: '/projects' },
     { name: 'Skills', path: '/skills' },
     { name: 'Experience', path: '/experience' },
-    { name: 'About', path: '/about' },
     { name: 'Home', path: '/' },
   ];
 
